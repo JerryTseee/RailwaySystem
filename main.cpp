@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-
+//define a structure
 struct Car {
 	string id;
 	Car* next;
@@ -13,8 +13,8 @@ void appendCar(Car*& head, Car*& tail, string id);
 void printTrain(Car*& head);
 
 int main() {
-	Car* head = NULL, * tail = NULL;
-	int n;
+	Car* head = NULL, * tail = NULL;//create the null node first.
+	int n;//length of the train
 	cin >> n;
 	string id;
 	for (int i = 0; i < n; i++) {
@@ -26,22 +26,11 @@ int main() {
 	return 0;
 }
 
-// Please implement the function appendCar() here.
-/*     this is "building a linked list backward"
-void appendCar(Car*& head, string id) {
-	Car* p = new Car;
-	p->id = id;
-	p->next = head;
-	head = p;
-}
-*/
-
-//this is building a linked list forward
 void appendCar(Car*& head, Car*& tail, string id)
 {
-	Car* p = new Car;
-	p->id = id;
-	p->next = NULL;
+	Car* p = new Car;//new car node
+	p->id = id;//the value of this new node
+	p->next = NULL;//let the next node is null
 	if (head == NULL)
 	{
 		head = p;
@@ -49,7 +38,7 @@ void appendCar(Car*& head, Car*& tail, string id)
 	}
 	else
 	{
-		tail->next = p;
+		tail->next = p;//if the linked list is not empty, the next-pointer of the current tail node is set the the new node;
 		tail = p;
 	}
 }
